@@ -12,7 +12,7 @@ st.title("California Housing Price Predictor")
 st.write(
     """
     This app predicts **California Housing Prices** based on several features.
-    Adjust the sliders below to input feature values and see the predicted price.
+    Adjust the sliders below to input feature values and see the predicted price
     """
 )
 
