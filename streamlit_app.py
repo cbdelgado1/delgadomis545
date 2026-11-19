@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+import numpy as np
 import joblib
 
 
@@ -29,13 +29,9 @@ AveOccup = st.slider("Average Occupancy", 0.5, 10.0, 3.0)
 Latitude = st.slider("Latitude", 32.0, 42.0, 37.0)
 Longitude = st.slider("Longitude", -125.0, -114.0, -120.0)
 
-# Same column names and order as the training data
-input_data = pd.DataFrame(
-    [[MedInc / 10000, HouseAge, AveRooms, AveBedrms,
-      Population, AveOccup, Latitude, Longitude]],
-    columns=["MedInc", "HouseAge", "AveRooms", "AveBedrms",
-             "Population", "AveOccup", "Latitude", "Longitude"],
-)
+# Prepare the input for prediction (same feature order as training)
+input_data = np.array([[MedInc / 10000, HouseAge, AveRooms, AveBedrms,
+                        Population, AveOccup, Latitude, Longitude]])
 
 prediction = model.predict(input_data)
 
